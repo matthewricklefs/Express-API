@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const todos = new Schema ({
     title: {
         type: String,
+        maxlength: 100,
         required: true
     },
     done: {
