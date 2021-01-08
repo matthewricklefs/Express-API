@@ -52,4 +52,16 @@ router.patch("/todo/:id", (req,res) => {
     })
 })
 
+//DELETE
+router.delete("/todo/delete/id", (req, res) => {
+    Todos.findByIdAndRemove(req.params.id, (err, todo) => {
+    if (err) {
+        res.status(404).json({ message: "Could not delete", errors: `${err}` })
+    } 
+    else {
+        res.status(200).json({ message: "Deleted that ish!" })
+    }
+  })
+})
+
 module.exports = router;
